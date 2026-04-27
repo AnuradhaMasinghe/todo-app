@@ -9,6 +9,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState('');
+  const [statusType, setStatusType] = useState('success');
   const [newTodo, setNewTodo] = useState({ title: '', description: '' });
   const [editingId, setEditingId] = useState(null);
   const [editTodo, setEditTodo] = useState({ title: '', description: '' });
@@ -33,8 +34,9 @@ function App() {
     fetchTodos();
   }, []);
 
-  const showStatus = (message) => {
+  const showStatus = (message, type = 'success') => {
     setStatus(message);
+    setStatusType(type);
     setTimeout(() => setStatus(''), 3200);
   };
 
